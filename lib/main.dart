@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'pages/login.dart';
+import 'pages/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Kedai Kamboja POS',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: const SplashPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -106,9 +110,9 @@ class MyHomePage extends StatelessWidget {
                     "Atur pesanan lebih cepat pelayanan lebih mantap",
                     style: TextStyle(
                       color: Color(0xFFD64A15),
-                      fontSize: 14,
+                      fontSize: 15,
                       fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
@@ -119,9 +123,9 @@ class MyHomePage extends StatelessWidget {
                     "Kasir otomatis kerja jadi praktis",
                     style: TextStyle(
                       color: Color(0xFFD64A15),
-                      fontSize: 14,
+                      fontSize: 15,
                       fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
@@ -138,7 +142,12 @@ class MyHomePage extends StatelessWidget {
                   // efek saat ditekan
                   overlayColor: const Color.fromARGB(255, 30, 120, 220),
                 ),
-                onPressed: () {}, 
+                onPressed: () {  
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                }, 
                  child: const Text(
                   "LOGIN",
                   style: TextStyle(
@@ -161,6 +170,8 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {}, 
                 child: Text("REGISTER")
               ),
+              SizedBox(height: 60),
+
             ],
           ),
         ),
